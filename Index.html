@@ -1,0 +1,751 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Roston Entreprise | Leadership & Performance</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;800&display=swap" rel="stylesheet">
+
+<style>
+:root{
+  --primary:#0b1f4d;
+  --accent:#ff6b3d;
+  --bg:#ffffff;
+  --text:#111;
+  --card:#ffffff;
+}
+
+/* MODE SOMBRE */
+body.dark{
+  --primary:#0b1f4d;
+  --accent:#ff6b3d;
+  --bg:#0a0f1f;
+  --text:#ffffff;
+  --card:#111827;
+}
+
+body{
+  background:var(--bg);
+  color:var(--text);
+  transition:0.3s;
+}
+
+/* NAV */
+nav{
+  display:flex;
+  justify-content:space-between;
+  padding:20px 8%;
+  background:#fff;
+  position:sticky;
+  top:0;
+  box-shadow:0 5px 20px rgba(0,0,0,0.05);
+}
+nav h2{color:var(--primary);}
+nav a{margin-left:20px;text-decoration:none;color:#333;font-weight:500;}
+
+/* HERO */
+.hero{
+  height:100vh;
+  background:linear-gradient(rgba(11,31,77,.8),rgba(11,31,77,.9)), url('hero-roston.png') center/cover;
+  display:flex;
+  align-items:center;
+  color:#fff;
+  padding:0 8%;
+}
+
+.hero-text{
+  max-width:600px;
+}
+.hero h1{
+  font-size:3rem;
+  font-weight:800;
+}
+.hero p{
+  margin:20px 0;
+  font-size:1.2rem;
+}
+.btn{
+  display:inline-block;
+  padding:14px 30px;
+  background:var(--accent);
+  color:#fff;
+  border-radius:30px;
+  text-decoration:none;
+  margin-right:10px;
+}
+
+/* SECTION */
+section{padding:80px 8%;}
+
+.title{
+  text-align:center;
+  margin-bottom:50px;
+}
+.title h2{font-size:2.5rem;color:var(--primary);}
+
+/* SERVICES */
+.services{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+  gap:30px;
+}
+.card{
+  background:#fff;
+  padding:30px;
+  border-radius:15px;
+  box-shadow:0 10px 30px rgba(0,0,0,0.08);
+  transition:0.3s;
+}
+.card:hover{transform:translateY(-10px);}
+.card h3{margin-bottom:10px;color:var(--primary);}
+
+/* OFFRE WEB */
+.offer{
+  background:var(--primary);
+  color:#fff;
+  border-radius:20px;
+  padding:50px;
+  text-align:center;
+}
+.offer h2{font-size:2rem;margin-bottom:20px;}
+.offer p{margin:10px 0;font-size:1.1rem;}
+
+/* ABOUT */
+.about{
+  display:flex;
+  gap:40px;
+  align-items:center;
+  flex-wrap:wrap;
+}
+.about img{
+  width:300px;
+  border-radius:20px;
+}
+.about-text{flex:1;}
+
+/* CTA */
+.cta{
+  background:var(--accent);
+  color:#fff;
+  text-align:center;
+  padding:60px;
+  border-radius:20px;
+}
+.cta h2{margin-bottom:20px;}
+
+.btn-cta{
+  display:inline-block;
+  padding:16px 40px;
+  background:#fff;
+  color:#ff6b3d;
+  font-weight:700;
+  border-radius:50px;
+  text-decoration:none;
+  position:relative;
+  overflow:hidden;
+  transition:all 0.3s ease;
+}
+
+
+/* CONTENEUR BOUTONS */
+.hero-text a{
+  margin-right:15px;
+}
+
+/* BOUTON PRINCIPAL */
+.btn-primary{
+  display:inline-block;
+  padding:16px 36px;
+  background:#ff6b3d;
+  color:#fff;
+  font-weight:700;
+  border-radius:50px;
+  text-decoration:none;
+  position:relative;
+  overflow:hidden;
+  transition:all 0.3s ease;
+}
+
+/* Hover principal */
+.btn-primary:hover{
+  transform:translateY(-4px) scale(1.05);
+  box-shadow:0 15px 30px rgba(0,0,0,0.3);
+  background:#e85a2f;
+}
+
+/* Clic */
+.btn-primary:active{
+  transform:scale(0.95);
+}
+
+/* Effet lumière */
+.btn-primary::before{
+  content:"";
+  position:absolute;
+  top:0;
+  left:-100%;
+  width:100%;
+  height:100%;
+  background:linear-gradient(120deg,transparent,rgba(255,255,255,0.6),transparent);
+  transition:0.6s;
+}
+.btn-primary:hover::before{
+  left:100%;
+}
+
+
+/* CONTENEUR */
+.nav-links a{
+  position:relative;
+  margin-left:25px;
+  text-decoration:none;
+  color:#333;
+  font-weight:600;
+  transition:all 0.3s ease;
+}
+
+/* LIGNE ANIMÉE */
+.nav-links a::after{
+  content:"";
+  position:absolute;
+  left:0;
+  bottom:-5px;
+  width:0%;
+  height:2px;
+  background:#ff6b3d;
+  transition:width 0.3s ease;
+}
+
+/* HOVER */
+.nav-links a:hover{
+  color:#ff6b3d;
+  transform:translateY(-2px);
+}
+
+.nav-links a:hover::after{
+  width:100%;
+}
+
+/* CLIC */
+.nav-links a:active{
+  transform:scale(0.95);
+}
+
+/* ========================== */
+/* BOUTON SECONDAIRE */
+/* ========================== */
+
+.btn-secondary{
+  display:inline-block;
+  padding:16px 36px;
+  background:transparent;
+  color:#fff;
+  border:2px solid #fff;
+  font-weight:600;
+  border-radius:50px;
+  text-decoration:none;
+  transition:all 0.3s ease;
+}
+
+/* Hover secondaire */
+.btn-secondary:hover{
+  background:#fff;
+  color:#0b1f4d;
+  transform:translateY(-3px);
+  box-shadow:0 10px 20px rgba(0,0,0,0.25);
+}
+
+/* Clic */
+.btn-secondary:active{
+  transform:scale(0.95);
+}
+
+/* Effet hover */
+.btn-cta:hover{
+  background:#0b1f4d;
+  color:#fff;
+  transform:translateY(-3px) scale(1.05);
+  box-shadow:0 10px 25px rgba(0,0,0,0.3);
+}
+
+/* Effet clic */
+.btn-cta:active{
+  transform:scale(0.95);
+  box-shadow:0 5px 10px rgba(0,0,0,0.2);
+}
+
+/* Effet lumière animée */
+.btn-cta::before{
+  content:"";
+  position:absolute;
+  top:0;
+  left:-100%;
+  width:100%;
+  height:100%;
+  background:linear-gradient(120deg,transparent,rgba(255,255,255,0.5),transparent);
+  transition:0.5s;
+}
+
+.btn-cta:hover::before{
+  left:100%;
+}
+
+
+/* ===== ECOSYSTEM ULTRA PREMIUM ===== */
+
+#ecosystem{
+  padding:120px 8%;
+  background:#0a0f1f;
+  color:#fff;
+  text-align:center;
+}
+
+#ecosystem .title h2{
+  color:#fff;
+}
+
+#ecosystem .title p{
+  opacity:0.7;
+  margin-top:10px;
+}
+
+.ecosystem-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
+  gap:40px;
+  margin-top:70px;
+}
+
+/* CARD IMAGE */
+.eco-card{
+  position:relative;
+  height:320px;
+  border-radius:25px;
+  overflow:hidden;
+  background-size:cover;
+  background-position:center;
+  cursor:pointer;
+  transform:translateY(40px);
+  opacity:0;
+  transition:all 0.6s ease;
+}
+
+/* Overlay sombre */
+.overlay{
+  position:absolute;
+  inset:0;
+  background:linear-gradient(to top, rgba(0,0,0,0.85), rgba(0,0,0,0.2));
+}
+
+/* CONTENU */
+.eco-content{
+  position:absolute;
+  bottom:0;
+  padding:30px;
+  text-align:left;
+  z-index:2;
+}
+
+.eco-content h3{
+  font-size:1.5rem;
+  margin-bottom:10px;
+}
+
+.eco-content p{
+  font-size:0.95rem;
+  opacity:0.85;
+  margin-bottom:15px;
+}
+
+/* LIEN */
+.eco-content a{
+  color:#ff6b3d;
+  text-decoration:none;
+  font-weight:600;
+}
+
+/* HOVER CINÉMATIQUE */
+.eco-card:hover{
+  transform:scale(1.05);
+}
+
+.eco-card:hover .overlay{
+  background:linear-gradient(to top, rgba(0,0,0,0.95), rgba(0,0,0,0.1));
+}
+
+/* APPARITION AU SCROLL */
+.eco-card.show{
+  transform:translateY(0);
+  opacity:1;
+}
+
+
+/* FOOTER */
+footer{
+  text-align:center;
+  padding:30px;
+  background:#111;
+  color:#fff;
+}
+
+@media(max-width:768px){
+.hero h1{font-size:2rem;}
+}
+
+
+/* ===== THEME TOGGLE BUTTON ===== */
+#theme-toggle{
+  margin-left:20px;
+  padding:8px 12px;
+  border:none;
+  border-radius:20px;
+  cursor:pointer;
+  background:var(--primary);
+  color:#fff;
+  font-size:16px;
+  transition:0.3s;
+}
+
+#theme-toggle:hover{
+  transform:scale(1.1);
+}
+
+
+nav{
+  background:var(--card);
+  transition:0.3s;
+}
+
+.card{
+  background:var(--card);
+  transition:0.3s;
+}
+
+.offer{
+  transition:0.3s;
+}
+
+/* ===== CORRECTION TEXTE MODE SOMBRE ===== */
+
+body.dark h1,
+body.dark h2,
+body.dark h3,
+body.dark .title h2,
+body.dark .card h3,
+body.dark nav h2 {
+  color: #ffffff !important;
+}
+
+body.dark nav a{
+  color:#ffffff;
+}
+
+
+
+/* ===== NAV RESPONSIVE ===== */
+
+@media(max-width:768px){
+  nav{
+    flex-direction:column;
+    align-items:flex-start;
+    padding:15px 5%;
+  }
+
+  .nav-links{
+    width:100%;
+    margin-top:10px;
+    display:flex;
+    flex-wrap:wrap;
+  }
+
+  .nav-links a{
+    margin:10px 15px 0 0;
+    font-size:14px;
+  }
+
+  #theme-toggle{
+    margin-top:10px;
+  }
+}
+
+/* ===== HERO RESPONSIVE ===== */
+
+@media(max-width:768px){
+  .hero{
+    height:auto;
+    padding:100px 5%;
+    text-align:center;
+  }
+
+  .hero-text{
+    max-width:100%;
+  }
+
+  .hero h1{
+    font-size:1.8rem;
+    line-height:1.3;
+  }
+
+  .hero p{
+    font-size:1rem;
+  }
+
+  .hero-text a{
+    display:block;
+    margin:15px auto;
+    width:80%;
+    text-align:center;
+  }
+}
+
+/* ===== SERVICES RESPONSIVE ===== */
+
+@media(max-width:768px){
+  .services{
+    grid-template-columns:1fr;
+  }
+
+  .card{
+    text-align:center;
+  }
+}
+
+/* ===== ECOSYSTEM RESPONSIVE ===== */
+
+@media(max-width:768px){
+  #ecosystem{
+    padding:80px 5%;
+  }
+
+  .ecosystem-grid{
+    grid-template-columns:1fr;
+    gap:25px;
+  }
+
+  .eco-card{
+    height:250px;
+  }
+
+  .eco-content{
+    padding:20px;
+  }
+
+  .eco-content h3{
+    font-size:1.2rem;
+  }
+
+  .eco-content p{
+    font-size:0.9rem;
+  }
+}
+
+/* ===== ABOUT RESPONSIVE ===== */
+
+@media(max-width:768px){
+  .about{
+    flex-direction:column;
+    text-align:center;
+  }
+
+  .about img{
+    width:100%;
+    max-width:250px;
+  }
+}
+
+@media(max-width:768px){
+  .cta{
+    padding:40px 20px;
+  }
+
+  .btn-cta{
+    width:80%;
+  }
+}
+
+@media(min-width:769px) and (max-width:1100px){
+  .services{
+    grid-template-columns:repeat(2,1fr);
+  }
+
+  .ecosystem-grid{
+    grid-template-columns:repeat(2,1fr);
+  }
+}
+
+</style>
+</head>
+
+<body>
+
+<nav>
+  <h2>Roston Entreprise</h2>
+  <div class="nav-links">
+    <a href="#services">Services</a>
+    <a href="#about">À propos</a>
+    <a href="#contact">Contact</a>
+	<button id="theme-toggle">🌙</button>
+  </div> 
+</nav>
+
+<section class="hero">
+  <div class="hero-text">
+    <h1>Transformez votre organisation en machine à performance</h1>
+    <p>Leadership • Conseil stratégique • Création de sites web professionnels</p>
+
+    <a href="https://wa.me/242064058878" class="btn-primary">Prendre rendez-vous</a>
+  </div>
+</section>
+
+<section id="services">
+  <div class="title">
+    <h2>Nos Services</h2>
+  </div>
+
+  <div class="services">
+    <div class="card">
+      <h3>Conseil RH</h3>
+      <p>Optimisation de la performance humaine et organisationnelle.</p>
+    </div>
+
+    <div class="card">
+      <h3>Coaching & Leadership</h3>
+      <p>Développement des leaders et prise de décision stratégique.</p>
+    </div>
+
+    <div class="card">
+      <h3>Psychologie</h3>
+      <p>Accompagnement professionnel et personnel.</p>
+    </div>
+
+    <div class="card">
+      <h3>Formation</h3>
+      <p>Développement des compétences et recommandations.</p>
+    </div>
+
+    <div class="card">
+      <h3>Création de sites web</h3>
+      <p>Sites modernes, rapides et orientés conversion.</p>
+    </div>
+
+    <div class="card">
+      <h3>Événementiel</h3>
+      <p>Organisation de prestations haut de gamme.</p>
+    </div>
+  </div>
+</section>
+
+<section id="ecosystem">
+  <div class="title">
+    <h2>Notre Écosystème</h2>
+    <p>Un réseau de solutions stratégiques pour accélérer votre réussite</p>
+  </div>
+
+  <div class="ecosystem-grid">
+
+    <div class="eco-card" style="background-image:url('IUR FACE.png')">
+      <div class="overlay"></div>
+      <div class="eco-content">
+        <h3>Institut Universitaire Roston</h3>
+        <p>Former une nouvelle génération de leaders compétents et visionnaires.</p>
+        <a href="#" target="_blank">Explorer →</a>
+      </div>
+    </div>
+
+    <div class="eco-card" style="background-image:url('Logo1.png')">
+      <div class="overlay"></div>
+      <div class="eco-content">
+        <h3>Helios Company</h3>
+        <p>Des solutions de transports sûrs, confortables et accessibles à tous.</p>
+        <a href="#" target="_blank">Découvrir →</a>
+      </div>
+    </div>
+
+    <div class="eco-card" style="background-image:url('img 12.jpg')">
+      <div class="overlay"></div>
+      <div class="eco-content">
+        <h3>CS Délices</h3>
+        <p>Des expériences culinaires haut de gamme et mémorables.</p>
+        <a href="https://cs-delices.vercel.app" target="_blank">Voir plus →</a>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<section>
+  <div class="offer">
+    <h2>Offres Création de Sites Web</h2>
+    <p>✔ Site vitrine : <strong>100.000 FCFA</strong></p>
+    <p>✔ Site professionnel avancé (2 à 4 pages) : <strong>à partir de 150.000 FCFA</strong></p>
+    <p>✔ Design moderne • Rapide • Optimisé mobile</p>
+  </div>
+</section>
+
+<section id="about">
+  <div class="about">
+    <img src="PGL.JPG" alt="">
+    <div class="about-text">
+      <h2>Genèse Prestance LOUBA</h2>
+      <p>Président de Roston Entreprise, expert en leadership, stratégie et transformation organisationnelle.</p>
+      <p>+50 clients accompagnés | Approche humaine et résultats concrets.</p>
+	  <br>
+      <p>📍 Brazzaville – République du Congo</p>
+      <p>📞 06 405 8878 / 05 396 8333</p>
+    </div>
+  </div>
+</section>
+
+<section class="cta">
+  <h2>Prêt à faire évoluer votre organisation ?</h2>
+  <a href="https://wa.me/242064058878" class="btn-cta">Contactez-nous maintenant</a>
+</section>
+
+<footer id="contact">
+  <p>© 2026 Roston Entreprise</p>
+</footer>
+
+<script>
+const toggle = document.getElementById("theme-toggle");
+const body = document.body;
+
+/* Charger le thème sauvegardé */
+if(localStorage.getItem("theme") === "dark"){
+  body.classList.add("dark");
+  toggle.textContent = "☀️";
+}
+
+toggle.addEventListener("click", () => {
+  body.classList.toggle("dark");
+
+  if(body.classList.contains("dark")){
+    toggle.textContent = "☀️";
+    localStorage.setItem("theme","dark");
+  } else {
+    toggle.textContent = "🌙";
+    localStorage.setItem("theme","light");
+  }
+});
+</script>
+
+<script>
+const ecoCards = document.querySelectorAll(".eco-card");
+
+const observer = new IntersectionObserver(entries => {
+  entries.forEach(entry => {
+    if(entry.isIntersecting){
+      entry.target.classList.add("show");
+    }
+  });
+}, {
+  threshold: 0.2
+});
+
+ecoCards.forEach(card => {
+  observer.observe(card);
+});
+</script>
+
+</body>
+</html>
